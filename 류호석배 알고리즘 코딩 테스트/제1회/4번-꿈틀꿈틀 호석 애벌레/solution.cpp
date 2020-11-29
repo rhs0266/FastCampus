@@ -27,7 +27,7 @@ void pro() {
         }
 
         if (sum >= K){
-            dy[right] = max(dy[right], dyLeftMax + (sum - K));
+            dy[right - 1] = max(dy[right - 1], dyLeftMax + (sum - K));
         }
         else break;
         sum -= a[left];
