@@ -9,6 +9,9 @@ public class Main {
         @Override
         public int compare(String lhs, String rhs) {
             // TODO
+            // lhs 와 rhs 를 비교해서 lhs 가 앞에 와야 하는 조건
+            // 1. 길이가 짧은 게 우선
+            // 2. 길이가 같으면 사전순으로
         }
     }
 
@@ -25,6 +28,9 @@ public class Main {
 
     static void pro() {
         // TODO
+        // 정렬 조건에 맞게 단어를 정렬하기
+
+        // 출력하기
     }
 
     public static void main(String[] args) {

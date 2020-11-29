@@ -5,38 +5,48 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static class Elem implements Comparable<Elem> {
-
-        public String name;
-        public int korean, english, math;
-
-        @Override
-        public int compareTo(Elem other) {
-            // TODO
-            // 국어, 영어, 수학, 이름 값을 가지고 정렬 기준 정의 하기
-        }
-    }
-
     static int N;
-    static Elem[] a;
+    static ArrayList<Integer>[] a;
 
     static void input() {
         N = scan.nextInt();
-        a = new Elem[N];
-        for (int i = 0; i < N; i++) {
-            a[i] = new Elem();
-            a[i].name = scan.next();
-            a[i].korean = scan.nextInt();
-            a[i].english = scan.nextInt();
-            a[i].math = scan.nextInt();
+        a = new ArrayList[N + 1];
+        for (int color = 1; color <= N; color++) {
+            a[color] = new ArrayList<Integer>();
+        }
+        for (int i = 1; i <= N; i++) {
+            int coord, color;
+            coord = scan.nextInt();
+            color = scan.nextInt();
+            a[color].add(coord);
         }
     }
 
-    static void pro() {
-        // TODO
-        // 기준을 통해 정렬하기
+    static int toLeft(int color, int idx) {
+        if (idx == 0)  // 왼쪽에 더 이상 점이 없는 상태
+            return Integer.MAX_VALUE;
+        return a[color].get(idx) - a[color].get(idx - 1);
+    }
 
-        // 정답 출력하기
+    static int toRight(int color, int idx) {
+        if (idx + 1 == a[color].size())  // 오른쪽에 더 이상 점이 없는 상태
+            return Integer.MAX_VALUE;
+        return a[color].get(idx + 1) - a[color].get(idx);
+    }
+
+    static void pro() {
+        for (int color = 1; color <= N; color++)
+            Collections.sort(a[color]);
+
+        int ans = 0;
+        for (int color = 1; color <= N; color++) {
+            for (int i = 0; i < a[color].size(); i++) {
+                int left_distance = toLeft(color, i);
+                int right_distance = toRight(color, i);
+                ans += Math.min(left_distance, right_distance);
+            }
+        }
+        System.out.println(ans);
     }
 
     public static void main(String[] args) {

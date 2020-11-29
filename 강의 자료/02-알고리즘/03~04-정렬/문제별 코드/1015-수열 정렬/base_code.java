@@ -7,11 +7,18 @@ public class Main {
 
     static class Elem implements Comparable<Elem> {
 
+        /**
+         * @param idx A 배열의 idx 위치를 기억하는 변수
+         * @param num A[idx]의 원래 값
+         */
         public int num, idx;
 
         @Override
         public int compareTo(Elem other) {
             // TODO
+            // 정렬 조건에 맞게 정렬하기
+            // 1. num 의 비내림차순
+            // 2. num이 같으면 idx 오름차순
         }
     }
 
@@ -25,12 +32,16 @@ public class Main {
         P = new int[N];
         for (int i = 0; i < N; i++) {
             B[i] = new Elem();
-            // TODO
+            // TODO: Elem 의 정의에 맞게 B[i] 에 값을 넣어주기
         }
     }
 
     static void pro() {
-        // TODO
+        // TODO: B 배열 정렬하기
+
+        // TODO: B 배열의 값을 이용해서 P 배열 채우기
+
+        // TODO: P 배열 출력하기
     }
 
     public static void main(String[] args) {
