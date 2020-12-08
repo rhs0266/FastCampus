@@ -39,24 +39,24 @@ public class Main {
 
         int best_sum = Integer.MAX_VALUE;
         int v1 = 0, v2 = 0;
-        for (int i = 1; i <= N - 1; i++) {
-            // A[i] 용액을 쓸 것이다. 고로 -A[i] 와 가장 가까운 용액을 자신의 오른쪽 구간에서 찾자.
-            int j = lower_bound(A, i + 1, N, -A[i]);
+        for (int left = 1; left <= N - 1; left++) {
+            // A[left] 용액을 쓸 것이다. 고로 -A[left] 와 가장 가까운 용액을 자신의 오른쪽 구간에서 찾자.
+            int candidate = lower_bound(A, left + 1, N, -A[left]);
 
-            // A[j - 1] 와 A[j] 중에 A[i] 와 섞었을 때의 정보를 정답에 갱신시킨다.
+            // A[candidate - 1] 와 A[candidate] 중에 A[left] 와 섞었을 때의 정보를 정답에 갱신시킨다.
 
-            // 1. A[i] + A[j - 1]
-            if (i < j - 1 && Math.abs(A[i] + A[j - 1]) < best_sum) {
-                best_sum = Math.abs(A[i] + A[j - 1]);
-                v1 = A[i];
-                v2 = A[j - 1];
+            // 1. A[left] + A[candidate - 1]
+            if (left < candidate - 1 && Math.abs(A[left] + A[candidate - 1]) < best_sum) {
+                best_sum = Math.abs(A[left] + A[candidate - 1]);
+                v1 = A[left];
+                v2 = A[candidate - 1];
             }
 
-            // 2. A[i] + A[j]
-            if (j <= N && Math.abs(A[i] + A[j]) < best_sum) {
-                best_sum = Math.abs(A[i] + A[j]);
-                v1 = A[i];
-                v2 = A[j];
+            // 2. A[left] + A[candidate]
+            if (candidate <= N && Math.abs(A[left] + A[candidate]) < best_sum) {
+                best_sum = Math.abs(A[left] + A[candidate]);
+                v1 = A[left];
+                v2 = A[candidate];
             }
             
         }

@@ -5,36 +5,34 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N;
+    static int N, C;
     static int[] A;
 
     static void input() {
         N = scan.nextInt();
+        C = scan.nextInt();
         A = new int[N + 1];
         for (int i = 1; i <= N; i++) {
             A[i] = scan.nextInt();
         }
     }
 
-    static int lower_bound(int[] A, int L, int R, int X) {
-        // A[L...R] 에서 X 이상의 수 중 제일 왼쪽 인덱스를 return 하는 함수
-        // 그런 게 없다면 R + 1 을 return 한다
+    static boolean determination(int D) {
+        // D 만큼의 거리 차이를 둔다면 C 개 만큼의 공유기를 설치할 수 있는가?
+
+        // 제일 왼쪽 집부터 가능한 많이 설치해보자!
+        // D 만큼의 거리를 두면서 최대로 설치한 개수와 C 를 비교하자.
+        int cnt = 1, last = A[1];
+        return cnt >= C;
     }
 
     static void pro() {
-        // A 에 대해 이분 탐색을 할 예정이니까, 정렬을 미리 해주자.
-        Arrays.sort(A, 1, N + 1);
+        // determination을 빠르게 하기 위해서 정렬해주자.
 
-        int best_sum = Integer.MAX_VALUE;
-        int v1 = 0, v2 = 0;
-        for (int left = 1; left <= N - 1; left++) {
-            // A[left] 용액을 쓸 것이다. 고로 -A[left] 와 가장 가까운 용액을 자신의 오른쪽 구간에서 찾자.
-            int candidate = lower_bound(A, left+1, N, -A[left]);
-
-            // A[candidate - 1] 와 A[candidate] 중에 A[left] 와 섞었을 때의 정보를 정답에 갱신시킨다.
-        }
-        sb.append(v1).append(' ').append(v2);
-        System.out.println(sb);
+        int L = 1, R = 1000000000, ans = 0;
+        // [L ... R] 범위 안에 정답이 존재한다!
+        // 이분 탐색과 determination 문제를 이용해서 answer를 빠르게 구하자!
+        System.out.println(ans);
     }
 
     public static void main(String[] args) {
