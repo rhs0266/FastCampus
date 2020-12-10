@@ -16,16 +16,26 @@ public class Main {
         }
     }
 
-    static boolean bin_search(int[] A, int L, int R, int X) {
-        // A[L ... R] 이 정렬되어 있다고 가정했을 때
-        // 이 안에서 X 를 이분탐색하고, 존재하면 true, 아니면 false 를 return 하는 함수
-        return false;
+    static int lower_bound(int[] A, int L, int R, int X) {
+        // X 이상의 수 중 가장 왼쪽 인덱스 return
+        // 없으면 R + 1
+    }
+
+    static int upper_bound(int[] A, int L, int R, int X) {
+        // X 초과의 수 중 가장 왼쪽 인덱스
+        // 없으면 R + 1
     }
 
     static void pro() {
-        // A 배열 정렬하기
-        
-        // M 개의 숫자를 입력 받고, 매번 A 배열에서 탐색하기
+        int M = scan.nextInt();
+        Arrays.sort(A, 1, N + 1);
+        for (int i = 1; i <= M; i++) {
+            int X = scan.nextInt();
+            int upper = upper_bound(A, 1, N, X);
+            int lower = lower_bound(A, 1, N, X);
+            sb.append(upper - lower).append(' ');
+        }
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
