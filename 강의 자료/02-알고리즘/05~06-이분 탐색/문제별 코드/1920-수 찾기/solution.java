@@ -16,32 +16,18 @@ public class Main {
         }
     }
 
-    static int lower_bound(int[] A, int L, int R, int X) {
-        int ans = R + 1;
-        while (L <= R) {
-            int mid = (L + R) / 2;
-            if (A[mid] >= X) {
-                ans = mid;
-                R = mid - 1;
-            } else {
-                L = mid + 1;
-            }
-        }
-        return ans;
-    }
+    static boolean bin_search(int[] A, int L,int R, int X){
+        while (L <= R){
+            int mid = (L+R)/2;
+            if (A[mid] == X)
+                return true;
 
-    static int upper_bound(int[] A, int L, int R, int X) {
-        int ans = R + 1;
-        while (L <= R) {
-            int mid = (L + R) / 2;
-            if (A[mid] > X) {
-                ans = mid;
-                R = mid - 1;
-            } else {
+            if (A[mid] < X)
                 L = mid + 1;
-            }
+            else
+                R = mid - 1;
         }
-        return ans;
+        return false;
     }
 
     static void pro() {
@@ -49,9 +35,8 @@ public class Main {
         Arrays.sort(A, 1, N + 1);
         for (int i = 1; i <= M; i++) {
             int X = scan.nextInt();
-            int upper = upper_bound(A, 1, N, X);
-            int lower = lower_bound(A, 1, N, X);
-            sb.append(upper - lower).append(' ');
+            if (bin_search(A, 1, N, X)) sb.append(1).append('\n');
+            else sb.append(0).append('\n');
         }
         System.out.println(sb);
     }

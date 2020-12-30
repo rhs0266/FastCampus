@@ -16,24 +16,19 @@ public class Main {
         }
     }
 
-    static int lower_bound(int[] A, int L, int R, int X) {
-        // X 이상의 수 중 가장 왼쪽 인덱스 return
-        // 없으면 R + 1
-    }
-
-    static int upper_bound(int[] A, int L, int R, int X) {
-        // X 초과의 수 중 가장 왼쪽 인덱스
-        // 없으면 R + 1
+    static boolean bin_search(int[] A, int L,int R, int X){
+        // A[L...R] 에서 X가 있으면 true, 없으면 false를 return 하는 함수
+        /* TODO */
     }
 
     static void pro() {
         int M = scan.nextInt();
-        Arrays.sort(A, 1, N + 1);
+        // 정렬 해주기!
+        /* TODO */
+        
         for (int i = 1; i <= M; i++) {
             int X = scan.nextInt();
-            int upper = upper_bound(A, 1, N, X);
-            int lower = lower_bound(A, 1, N, X);
-            sb.append(upper - lower).append(' ');
+            /* TODO*/
         }
         System.out.println(sb);
     }
