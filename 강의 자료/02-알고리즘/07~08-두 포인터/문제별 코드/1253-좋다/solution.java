@@ -6,7 +6,7 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     static int N;
-    static int[] A, cnt;
+    static int[] A;
 
     static void input() {
         N = scan.nextInt();
@@ -14,7 +14,6 @@ public class Main {
         for (int i = 1; i <= N; i++) {
             A[i] = scan.nextInt();
         }
-        cnt = new int[100000 + 1];
     }
 
     // target_idx 번째 원소가 서로 다른 두 수의 합으로 표현이 되는가?
