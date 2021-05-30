@@ -27,20 +27,11 @@ public class Main {
     static void rec_func(int k) {
         if (k == M + 1) { // 1 ~ M 번째를 전부 다 골랐다
             int vowel = 0, consonant = 0;
-            for (int i = 1; i <= M; i++) {
-                if (isVowel(chars[selected[i]])) vowel++;
-                else consonant++;
-            }
-            if (vowel >= 1 && consonant >= 2) {
-                for (int i = 1; i <= M; i++) sb.append(chars[selected[i]]);
-                sb.append('\n');
-            }
+            // 선택한 문자들이 조건을 만족하는 지 확인하자
+            /* TODO */
         } else {
-            for (int cand = selected[k - 1] + 1; cand <= N; cand++) {
-                selected[k] = cand;
-                rec_func(k + 1);
-                selected[k] = 0;
-            }
+            // 알파벳 순으로 증가하는 순서로 골라보기
+            /* TODO */
         }
     }
 
@@ -48,7 +39,8 @@ public class Main {
         input();
 
         // 1 번째 원소부터 M 번째 원소를 조건에 맞는 모든 방법을 찾아줘
-        Arrays.sort(chars, 1, N + 1);
+        // chars 정렬해주기
+        /* TODO */
         rec_func(1);
         System.out.println(sb.toString());
 

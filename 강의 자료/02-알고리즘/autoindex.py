@@ -21,7 +21,7 @@ def get_code_dir(path, numberStr):
             continue
         if numberStr not in p:
             continue
-        req = ['solution.cpp', 'solution.java', 'solution.py', 'base_code.java']
+        req = ['solution.cpp', 'solution.java', 'solution.py']
         if all(r in os.listdir(p) for r in req):
             return p.replace(' ', '%20')
     return False
