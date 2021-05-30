@@ -27,7 +27,7 @@ def get_code_dir(path, numberStr):
     return False
 
 for chapter in get_dir_list('./'):
-    md_path = os.path.join(chapter, '문제 리스트.md')
+    md_path = os.path.join(chapter, 'README.md')
     new_md = []
     with open(md_path, "r", encoding="UTF8") as f:
         for line in f.readlines():
@@ -42,6 +42,7 @@ for chapter in get_dir_list('./'):
                 title = tree.xpath('//title/text()')[0].split(' ', 1)[1]
                 row[1] = title
                 codePath = get_code_dir(chapter+'/문제별 코드', numberStr)
+                row[2] = row[2].replace('boj', 'http://boj')
                 if codePath:
                     row[3] = f'[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/{codePath})'
                 else:
