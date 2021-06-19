@@ -1,40 +1,45 @@
 import sys
-a_str, b_str = sys.stdin.readline().strip().split()
+import queue
 
-a_min_base = 2
-b_min_base = 2
+n = int(sys.stdin.readline().strip())
+name = list(sys.stdin.readline().strip().split())
+name.sort()
+number = dict()
+for i in range(n):
+	number[name[i]] = i
 
-for x in a_str:
-	if x.isalpha():
-		a_min_base = max(a_min_base, ord(x) - ord('a') + 11)
-	if x.isdigit():
-		a_min_base = max(a_min_base, ord(x) - ord('0') + 1)
+m = int(sys.stdin.readline().strip())
+graph = [[] for i in range(n + 1)]
+indeg = [0 for i in range(n + 1)]
+for i in range(m):
+	x, y = sys.stdin.readline().strip().split()
+	graph[number[y]].append(number[x])
+	indeg[number[x]] += 1
 
-for x in b_str:
-	if x.isalpha():
-		b_min_base = max(b_min_base, ord(x) - ord('a') + 11)
-	if x.isdigit():
-		b_min_base = max(b_min_base, ord(x) - ord('0') + 1)
+que = queue.Queue()
+parent = []
+for i in range(n):
+	if indeg[i] == 0:
+		que.put(i)
+		parent.append(name[i])
 
-x = -1
-a = -1
-b = -1
-cnt = 0
-for i in range(a_min_base, 37):
-	for j in range(b_min_base, 37):
-		a_num = int(a_str, i)
-		b_num = int(b_str, j)
-		if a_num >= 2**63 or b_num >= 2**63:
-			continue
-		if a_num == b_num and i != j:
-			x = a_num
-			a = i
-			b = j
-			cnt += 1
+child = [[] for i in range(n + 1)]
+while que.qsize():
+	now = que.get()
+	for next in graph[now]:
+		indeg[next] -= 1
+		if indeg[next] == 0:
+			que.put(next)
+			child[now].append(next)
 
-if cnt==0:
-	print('Impossible')
-elif cnt>1:
-	print('Multiple')
-else:
-	print(x, a, b)
+print(len(parent))
+for x in parent:
+	print(x, end = ' ')
+print()
+
+for i in range(n):
+	print(name[i], len(child[i]), end = ' ')
+	child[i].sort()
+	for x in child[i]:
+		print(name[x], end = ' ')
+	print()

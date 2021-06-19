@@ -1,51 +1,55 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
-import java.lang.Math;
 
 public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N;
-    static int[][] Dy;
-    static int[] A;
+    static int K, Q;
+    static int[] num;
+    static int[][] Dy, sum;
 
-    static void input() {
-        N = scan.nextInt();
-        A = new int[N + 1];
-        Dy = new int[N + 1][10];
+    static void input(){
+        K = scan.nextInt();
+        num = new int[K + 1];
+        sum = new int[K + 1][K + 1];
+        for (int i = 1; i <= K; i++){
+            num[i] = scan.nextInt();
+        }
+    }
+
+    static void preprocess(){
+        for (int i = 1; i <= K; i++){
+            for (int j = i; j <= K; j++){
+                sum[i][j] = sum[i][j - 1] + num[j];
+            }
+        }
     }
 
     static void pro() {
-        // 초기값 구하기
-        for (int num = 0; num <= 9; num++) {
-            Dy[1][num] = 1;
-        }
+        preprocess();
+        Dy = new int[K + 1][K + 1];
 
-        // 점화식을 토대로 Dy 배열 채우기
-        for (int len = 2; len <= N; len++) {
-            for (int num = 0; num <= 9; num++) {
-                // 길이가 len이고 num으로 끝나는 개수를 계산하자 == Dy[len][num] 을 계산하자.
-                for (int prev = 0; prev <= num; prev++) {
-                    Dy[len][num] += Dy[len - 1][prev];
-                    Dy[len][num] %= 10007;
+        for (int len = 2; len <= K; len ++){
+            for (int i = 1; i <= K - len + 1; i++){
+                int j = i + len - 1;
+                Dy[i][j] = Integer.MAX_VALUE;
+                for (int k = i; k < j; k++){
+                    Dy[i][j] = Math.min(Dy[i][j], Dy[i][k] + Dy[k + 1][j] + sum[i][j]);
                 }
             }
         }
 
-        // Dy배열로 정답 계산하기
-        int ans = 0;
-        for (int num = 0; num <= 9; num++) {
-            ans += Dy[N][num];
-            ans %= 10007;
-        }
-
-        System.out.println(ans);
+        System.out.println(Dy[1][K]);
     }
 
     public static void main(String[] args) {
-        input();
-        pro();
+        Q = scan.nextInt();
+        for (int rep = 1; rep<=Q;rep++) {
+            input();
+            pro();
+        }
     }
 
 
