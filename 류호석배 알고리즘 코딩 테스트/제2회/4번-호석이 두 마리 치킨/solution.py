@@ -1,40 +1,37 @@
 import sys
-a_str, b_str = sys.stdin.readline().strip().split()
+n, m = map(int, sys.stdin.readline().strip().split())
+adj = [[101 for j in range(n)] for i in range(n)]
 
-a_min_base = 2
-b_min_base = 2
+for i in range(m):
+	a, b = map(int, sys.stdin.readline().strip().split())
+	adj[a - 1][b - 1] = 1
+	adj[b - 1][a - 1] = 1
 
-for x in a_str:
-	if x.isalpha():
-		a_min_base = max(a_min_base, ord(x) - ord('a') + 11)
-	if x.isdigit():
-		a_min_base = max(a_min_base, ord(x) - ord('0') + 1)
+for i in range(n):
+	adj[i][i] = 0
 
-for x in b_str:
-	if x.isalpha():
-		b_min_base = max(b_min_base, ord(x) - ord('a') + 11)
-	if x.isdigit():
-		b_min_base = max(b_min_base, ord(x) - ord('0') + 1)
-
-x = -1
-a = -1
-b = -1
-cnt = 0
-for i in range(a_min_base, 37):
-	for j in range(b_min_base, 37):
-		a_num = int(a_str, i)
-		b_num = int(b_str, j)
-		if a_num >= 2**63 or b_num >= 2**63:
+for k in range(n):
+	for i in range(n):
+		if i == k:
 			continue
-		if a_num == b_num and i != j:
-			x = a_num
-			a = i
-			b = j
-			cnt += 1
+		for j in range(n):
+			if i == j or j == k:
+				continue
+			if adj[i][j] > adj[i][k] + adj[k][j]:
+				adj[i][j] = adj[i][k] + adj[k][j]
 
-if cnt==0:
-	print('Impossible')
-elif cnt>1:
-	print('Multiple')
-else:
-	print(x, a, b)
+
+building = [1, 2]
+res = 101010
+for i in range(n):
+	for j in range(i + 1, n):
+		now = 0
+		for k in range(n):
+			if i == k or j == k:
+				continue
+			now += min(adj[i][k], adj[j][k])
+		if res > now:
+			building = [i + 1, j + 1]
+			res = now
+
+print(building[0], building[1], res * 2)
