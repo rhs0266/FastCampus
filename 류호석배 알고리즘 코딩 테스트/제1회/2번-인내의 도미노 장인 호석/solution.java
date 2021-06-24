@@ -11,22 +11,22 @@ public class Main {
     static FastReader scan = new FastReader();
 
     // board 의 상태를 입력받는 함수
-    static void input(){
+    static void input() {
         n = scan.nextInt();
         m = scan.nextInt();
         R = scan.nextInt();
-        a = new int[n+1][m+1];
-        backup = new int[n+1][m+1];
-        for (int i=1;i<=n;i++)
-            for (int j=1;j<=m;j++) {
+        a = new int[n + 1][m + 1];
+        backup = new int[n + 1][m + 1];
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= m; j++) {
                 a[i][j] = scan.nextInt();
                 backup[i][j] = a[i][j];
             }
     }
 
     // 게임 순서에 맞게 진행시키는 함수
-    static void pro(){
-        for (int i=1;i<=R;i++){
+    static void pro() {
+        for (int i = 1; i <= R; i++) {
             int X, Y;
             String dir;
 
@@ -44,8 +44,8 @@ public class Main {
 
         // 정답 출력
         System.out.println(ans);
-        for (int i=1;i<=n;i++){
-            for (int j=1;j<=m;j++){
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (a[i][j] == 0) System.out.print("F ");
                 else System.out.print("S ");
             }
@@ -59,9 +59,9 @@ public class Main {
     }
 
     // x 행 y 열에 있는 도미노를 dir 방향으로 밀어버리는 함수
-    static void attack(int x,int y, char dir){
+    static void attack(int x, int y, char dir) {
         if (a[x][y] == 0) return;
-        
+
         // dx, dy 는 도미노가 넘어지는 방향을 좌표 변화량으로 표현한 것
         int dx = 0, dy = 0;
         if (dir == 'E') dy = 1;
