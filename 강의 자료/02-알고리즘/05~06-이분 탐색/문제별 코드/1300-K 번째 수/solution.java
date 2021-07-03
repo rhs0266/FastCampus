@@ -5,38 +5,28 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, M;
-    static int[] A;
+    static int N, K;
 
     static void input() {
         N = scan.nextInt();
-        M = scan.nextInt();
-        A = new int[M + 1];
-        for (int i = 1; i <= M; i++) {
-            A[i] = scan.nextInt();
-        }
+        K = scan.nextInt();
     }
 
-    static boolean determination(int height) {
-        int last = 0;  // 밝혀진 마지막 위치
-        for (int i = 1; i <= M; i++) {
-            if (A[i] - last <= height) {
-                last = A[i] + height;
-            } else {
-                return false;
-            }
+    static boolean determination(long candidate) {
+        // candidate 이하의 숫자가 K개 이상인가?
+        long sum = 0;
+        for (int i = 1; i <= N; i++) {
+            sum += Math.min(N, candidate / i);
         }
-        return last >= N;
+        return sum >= K;
     }
 
     static void pro() {
-        int L = 0, R = N, ans = N;
-
-        Arrays.sort(A, 1, M + 1);
+        long L = 1, R = (long) N * N, ans = 0;
         // [L ... R] 범위 안에 정답이 존재한다!
         // 이분 탐색과 determination 문제를 이용해서 answer를 빠르게 구하자!
         while (L <= R) {
-            int mid = (L + R) / 2;
+            long mid = (L + R) / 2;
             if (determination(mid)) {
                 ans = mid;
                 R = mid - 1;
