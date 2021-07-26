@@ -7,7 +7,20 @@ Fast Campus 강의 관련 자료입니다.
 ## [제1회 류호석배 알고리즘 코딩 테스트 (링크)](https://www.acmicpc.net/contest/view/557)
 [정답 자료](https://github.com/rhs0266/FastCampus/tree/first_round/%EB%A5%98%ED%98%B8%EC%84%9D%EB%B0%B0%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8/%EC%A0%9C1%ED%9A%8C)
 
+[풀이 PDF](https://github.com/rhs0266/FastCampus/blob/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/03-%EB%AA%A8%EC%9D%98%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/03-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-1.pdf)
+
 풀이 블로그: [검수자 김민상님의 블로그](https://ssu-gongdoli.tistory.com/113)
+
+## [제2회 류호석배 알고리즘 코딩 테스트 (링크)](https://www.acmicpc.net/contest/view/557)
+[정답 자료](https://github.com/rhs0266/FastCampus/tree/main/%EB%A5%98%ED%98%B8%EC%84%9D%EB%B0%B0%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8/%EC%A0%9C2%ED%9A%8C)
+
+[풀이 PDF](https://github.com/rhs0266/FastCampus/blob/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/03-%EB%AA%A8%EC%9D%98%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/03-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-2.pdf)
+
+
+## [제3회 류호석배 알고리즘 코딩 테스트 (링크)](https://www.acmicpc.net/contest/view/557)
+[정답 자료](https://github.com/rhs0266/FastCampus/tree/main/%EB%A5%98%ED%98%B8%EC%84%9D%EB%B0%B0%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8/%EC%A0%9C3%ED%9A%8C)
+
+[풀이 PDF](https://github.com/rhs0266/FastCampus/blob/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/03-%EB%AA%A8%EC%9D%98%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/03-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-3.pdf)
 
 # 강의 자료
 패스트 캠퍼스의 강의에서 사용되는 ppt나 code들입니다. 각 문제마다 폴더 하나로 묶여있고, 안에는 JAVA, C++, Python 코드들이 있습니다.
