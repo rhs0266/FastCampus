@@ -5,47 +5,51 @@ using namespace std;
 #define NM 55
 
 #include <vector>
-int n, root, erased, leaf[NM];
-vector<int> child[NM];
+int n;
+int childs[NM][2];
 
 void input() {
 	cin >> n;
-	for (int i = 0; i < n; i++) {
-		int par;
-		cin >> par;
-		if (par == -1) {
-			root = i;
-		}
-		else {
-			child[par].push_back(i);
+	for (int i = 1; i <= n; i++) {
+		char x;
+		cin >> x;
+		int X = x - 'A';
+		for (int k = 0; k < 2; k++) {
+			char ch;
+			cin >> ch;
+			if (ch == '.') childs[X][k] = -1;
+			else childs[X][k] = ch - 'A';
 		}
 	}
-	cin >> erased;
 }
 
-void DFS(int x, int par) {
-	if (child[x].empty())
-		leaf[x]++;
-	for (int y : child[x]) {
-		if (y == par) continue;
-		DFS(y, x);
-		leaf[x] += leaf[y];
-	}
+void in_order(int x) {
+	if (x == -1) return;
+	in_order(childs[x][0]);
+	cout << (char)(x + 'A');
+	in_order(childs[x][1]);
+}
+
+void pre_order(int x) {
+	if (x == -1) return;
+	cout << (char)(x + 'A');
+	pre_order(childs[x][0]);
+	pre_order(childs[x][1]);
+}
+
+void post_order(int x) {
+	if (x == -1) return;
+	post_order(childs[x][0]);
+	post_order(childs[x][1]);
+	cout << (char)(x + 'A');
 }
 
 void pro() {
-	for (int i = 0; i < n; i++) {
-		for (auto it = child[i].begin(); it != child[i].end(); it++){
-			if (*it == erased) {
-				child[i].erase(it);
-				break;
-			}
-		}
-	}
-
-	if (root != erased) DFS(root, -1);
-
-	cout << leaf[root];
+	pre_order(0);
+	cout << '\n';
+	in_order(0);
+	cout << '\n';
+	post_order(0);
 }
 
 int main() {
