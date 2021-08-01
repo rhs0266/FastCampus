@@ -6,46 +6,63 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
+    static class Info {
+        int y, v;
+        Info(int y, int v) {
+            this.y = y;
+            this.v = v;
+        }
+    }
+
     static int N, M;
     static int[] indeg;
-    static ArrayList<Integer>[] adj;
+    static int[][] cnt;
+    static ArrayList<Info>[] adj;
 
     static void input() {
         N = scan.nextInt();
         M = scan.nextInt();
         adj = new ArrayList[N + 1];
         indeg = new int[N + 1];
+        cnt = new int[N + 1][N + 1];
         for (int i = 1; i <= N; i++)
             adj[i] = new ArrayList<>();
+
         for (int i = 0; i < M; i++) {
-            int x = scan.nextInt(), y = scan.nextInt();
-            adj[x].add(y);
-            // indegree 계산하기
+            int y = scan.nextInt(), x = scan.nextInt(), v = scan.nextInt();
+            adj[x].add(new Info(y, v));
             indeg[y]++;
         }
     }
 
     static void pro() {
         Deque<Integer> queue = new LinkedList<>();
-        // 제일 앞에 "정렬될 수 있는" 정점 찾기
+    	// 기본 부품 찾기
         for (int i = 1; i <= N; i++)
-            if (indeg[i] == 0)
+            if (indeg[i] == 0) {
                 queue.add(i);
-            
+                cnt[i][i] = 1;
+            }
 
-        // 정렬될 수 있는 정점이 있다면?
-        // 1. 정렬 결과에 추가하기
-        // 2. 정점과 연결된 간선 제거하기
-        // 3. 새롭게 "정렬 될 수 있는" 정점 Queue에 추가하기
+
+        // 먼저 만들 수 있는 제품들부터 차례대로 만들어서 필요 기본 부품 개수 계산하기
         while (!queue.isEmpty()) {
             int x = queue.poll();
             sb.append(x).append(' ');
-            for (int y : adj[x]) {
+            for (Info info : adj[x]) {
+                int y = info.y, v = info.v;
                 indeg[y]--;
+                // 제품 y에 제품 x 가 v 개 필요하므로 기본 부품 개수에 v 를 곱해서 누적시켜 준다.
+                for (int i = 1; i <= N; i++) {
+                    cnt[y][i] += cnt[x][i] * v;
+                }
                 if (indeg[y] == 0) queue.add(y);
             }
         }
-        System.out.println(sb);
+
+        for (int i = 1; i<=N;i++)
+            if (cnt[N][i] != 0)
+                System.out.println(i + " " + cnt[N][i]);
     }
 
     public static void main(String[] args) {

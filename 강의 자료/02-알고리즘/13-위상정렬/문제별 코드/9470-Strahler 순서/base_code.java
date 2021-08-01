@@ -6,21 +6,24 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, M;
-    static int[] indeg;
+    static int K, N, M;
+    static int[] indeg, order, maxCnt;
     static ArrayList<Integer>[] adj;
 
     static void input() {
+        K = scan.nextInt();
         N = scan.nextInt();
         M = scan.nextInt();
         adj = new ArrayList[N + 1];
         indeg = new int[N + 1];
+        order = new int[N + 1];
+        maxCnt = new int[N + 1];
         for (int i = 1; i <= N; i++)
             adj[i] = new ArrayList<>();
+
         for (int i = 0; i < M; i++) {
             int x = scan.nextInt(), y = scan.nextInt();
             adj[x].add(y);
-            // indegree 계산하기
             indeg[y]++;
         }
     }
@@ -28,29 +31,20 @@ public class Main {
     static void pro() {
         Deque<Integer> queue = new LinkedList<>();
         // 제일 앞에 "정렬될 수 있는" 정점 찾기
-        for (int i = 1; i <= N; i++)
-            if (indeg[i] == 0)
-                queue.add(i);
-            
+        /* TODO */
 
-        // 정렬될 수 있는 정점이 있다면?
-        // 1. 정렬 결과에 추가하기
-        // 2. 정점과 연결된 간선 제거하기
-        // 3. 새롭게 "정렬 될 수 있는" 정점 Queue에 추가하기
-        while (!queue.isEmpty()) {
-            int x = queue.poll();
-            sb.append(x).append(' ');
-            for (int y : adj[x]) {
-                indeg[y]--;
-                if (indeg[y] == 0) queue.add(y);
-            }
-        }
-        System.out.println(sb);
+        // Strahler 순서를 고려해서 위상정렬을 수행하자.
+        int ans = 0;
+        /* TODO */
+        System.out.println(K + " " + ans);
     }
 
     public static void main(String[] args) {
-        input();
-        pro();
+        int T = scan.nextInt();
+        while (T-- > 0) {
+            input();
+            pro();
+        }
     }
 
 

@@ -6,46 +6,55 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, M;
-    static int[] indeg;
+    static int K, N, M;
+    static int[] indeg, cnt, satisfaction;
     static ArrayList<Integer>[] adj;
 
     static void input() {
         N = scan.nextInt();
         M = scan.nextInt();
+        K = scan.nextInt();
         adj = new ArrayList[N + 1];
         indeg = new int[N + 1];
+        cnt = new int[N + 1];
+        satisfaction = new int[N + 1];
         for (int i = 1; i <= N; i++)
             adj[i] = new ArrayList<>();
+
         for (int i = 0; i < M; i++) {
             int x = scan.nextInt(), y = scan.nextInt();
             adj[x].add(y);
-            // indegree 계산하기
             indeg[y]++;
         }
     }
 
     static void pro() {
-        Deque<Integer> queue = new LinkedList<>();
-        // 제일 앞에 "정렬될 수 있는" 정점 찾기
-        for (int i = 1; i <= N; i++)
-            if (indeg[i] == 0)
-                queue.add(i);
-            
+        boolean abnormal = false;
+        while (K-- > 0) {
+            int t = scan.nextInt(), x = scan.nextInt();
+            if (t == 1){
+                // x 의 선행 건물들이 모두 지어졌는 지 확인하기
+                /* TODO */
+                
+                // x 의 개수 증가
+                cnt[x]++;
 
-        // 정렬될 수 있는 정점이 있다면?
-        // 1. 정렬 결과에 추가하기
-        // 2. 정점과 연결된 간선 제거하기
-        // 3. 새롭게 "정렬 될 수 있는" 정점 Queue에 추가하기
-        while (!queue.isEmpty()) {
-            int x = queue.poll();
-            sb.append(x).append(' ');
-            for (int y : adj[x]) {
-                indeg[y]--;
-                if (indeg[y] == 0) queue.add(y);
+                // x 가 처음 지어진 것이라면 x가 영향을 주는 건물들에 "너희의 선행 건물 중 하나가 처음 지어졌어" 라고 알려주기
+                /* TODO */
+            }
+            else{
+                // x 라는 건물이 한 개 이상 지어져 있는 지 확인하기
+                /* TODO */
+                
+                // x 의 개수 감소
+                cnt[x]--;
+
+                // x 가 더 이상 남아있지 않다면, "너희의 선행 건물 중 하나가 사라졌어" 라고 알려주기
+                /* TODO */
             }
         }
-        System.out.println(sb);
+        if (abnormal) System.out.println("Lier!");
+	    else System.out.println("King-God-Emperor");
     }
 
     public static void main(String[] args) {

@@ -7,21 +7,26 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     static int N, M;
-    static int[] indeg;
+    static int[] indeg, T_done, T;
     static ArrayList<Integer>[] adj;
 
     static void input() {
         N = scan.nextInt();
-        M = scan.nextInt();
         adj = new ArrayList[N + 1];
         indeg = new int[N + 1];
-        for (int i = 1; i <= N; i++)
+        T = new int[N + 1];
+        T_done = new int[N + 1];
+        for (int i = 1; i <= N; i++) {
             adj[i] = new ArrayList<>();
-        for (int i = 0; i < M; i++) {
-            int x = scan.nextInt(), y = scan.nextInt();
-            adj[x].add(y);
-            // indegree 계산하기
-            indeg[y]++;
+        }
+        for (int i = 1; i <= N; i++) {
+            T[i] = scan.nextInt();
+            while (true) {
+                int y = scan.nextInt();
+                if (y == -1) break;
+                adj[y].add(i);
+                indeg[i]++;
+            }
         }
     }
 
@@ -29,23 +34,22 @@ public class Main {
         Deque<Integer> queue = new LinkedList<>();
         // 제일 앞에 "정렬될 수 있는" 정점 찾기
         for (int i = 1; i <= N; i++)
-            if (indeg[i] == 0)
+            if (indeg[i] == 0) {
                 queue.add(i);
-            
+                T_done[i] = T[i];
+            }
 
-        // 정렬될 수 있는 정점이 있다면?
-        // 1. 정렬 결과에 추가하기
-        // 2. 정점과 연결된 간선 제거하기
-        // 3. 새롭게 "정렬 될 수 있는" 정점 Queue에 추가하기
+        // 위상 정렬 순서대로 T_done 계산을 함께 해주기
         while (!queue.isEmpty()) {
             int x = queue.poll();
-            sb.append(x).append(' ');
             for (int y : adj[x]) {
                 indeg[y]--;
                 if (indeg[y] == 0) queue.add(y);
+                T_done[y] = Math.max(T_done[y], T_done[x] + T[y]);
             }
         }
-        System.out.println(sb);
+        for (int i = 1; i <= N; i++)
+            System.out.println(T_done[i]);
     }
 
     public static void main(String[] args) {
