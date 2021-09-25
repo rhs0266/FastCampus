@@ -1,31 +1,37 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
-    static StringBuilder sb = new StringBuilder();
     static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
 
-    static int n, m;
-    static int[] a, b;
+    static int Q;
+    static long[][] Dy;
 
-    static void input() {
-        n = scan.nextInt();
-        m = scan.nextInt();
-        a = new int[n + 1];
-        b = new int[m + 1];
-        for (int i = 1; i <= n; i++) {
-            a[i] = scan.nextInt();
-        }
-        for (int i = 1; i <= m; i++) {
-            b[i] = scan.nextInt();
+    static void input(){
+        Q = scan.nextInt();
+    }
+
+    // Dy[][] 를 미리 계산해 놓기
+    static void preprocess() {
+        // Dy[i][k] := fibonacci(i) 를 호출했을 때, k 가 출력되는 횟수
+        Dy[0][0] = 1;
+        Dy[1][1] = 1;
+        for (int i = 2; i <= 40; i++) {
+            Dy[i][0] = Dy[i - 1][0] + Dy[i - 2][0];
+            Dy[i][1] = Dy[i - 1][1] + Dy[i - 2][1];
         }
     }
 
     static void pro() {
-        int L = 1, R = 1;
-        // a와 b를 앞에서부터 하나씩 추출해서 출력한다. 단, 둘 다 비어있지 않은 경우와 그것이 아닌 경우를 잘 나누자.
-        /* TODO */
-        
+        Dy = new long[40 + 1][2];
+        preprocess();
+
+        for (int i = 1; i <= Q; i++){
+            int q = scan.nextInt();
+            sb.append(Dy[q][0]).append(' ').append(Dy[q][1]).append('\n');
+        }
         System.out.println(sb);
     }
 
@@ -33,6 +39,7 @@ public class Main {
         input();
         pro();
     }
+
 
     static class FastReader {
         BufferedReader br;

@@ -1,10 +1,11 @@
 |문제 이름|문제 링크|답안 코드 링크|
 |---|---|---|
-|1, 2, 3 더하기|[링크](http://boj.kr/9095)|[링크]|
-|2×n 타일링|[링크](http://boj.kr/11726)|[링크]|
-|계단 오르기|[링크](http://boj.kr/2579)|[링크]|
-|오르막 수|[링크](http://boj.kr/11057)|[링크]|
-||[링크](boj.kr/)|[링크]()|
+|1, 2, 3 더하기|[링크](http://boj.kr/9095)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/9095-1,%202,%203%20더하기)|
+|2×n 타일링|[링크](http://boj.kr/11726)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/11726-2xN%20타일링)|
+|계단 오르기|[링크](http://boj.kr/2579)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2579-계단%20오르기)|
+|오르막 수|[링크](http://boj.kr/11057)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/11057-오르막%20수)|
+|파일 합치기|[링크](http://boj.kr/11066)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/11066-파일%20합치기)|
+|트리와 쿼리|[링크](http://boj.kr/15681)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/15681-트리와%20쿼리)|
 |**연습 문제**|||
 |피보나치 함수|[링크](http://boj.kr/1003)|[링크]|
 |피보나치 수 5|[링크](http://boj.kr/10870)|[링크]|
@@ -22,5 +23,6 @@
 |내려가기|[링크](http://boj.kr/2096)|[링크]|
 |1학년|[링크](http://boj.kr/5557)|[링크]|
 |기타리스트|[링크](http://boj.kr/1495)|[링크]|
-|1, 2, 3 더하기|[링크](http://boj.kr/9095)|[링크]|
+|1, 2, 3 더하기|[링크](http://boj.kr/9095)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/9095-1,%202,%203%20더하기)|
 |1, 2, 3 더하기 5|[링크](http://boj.kr/15990)|[링크]|
+|우수 마을|[링크](http://boj.kr/1949)|[링크]|

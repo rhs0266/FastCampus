@@ -4,35 +4,39 @@
 typedef long long int ll;
 using namespace std;
 
-#define NM 100005
+#define NM 505
 
-#include <vector>
-int n, a[NM], dy[NM][2];
-vector<int> con[NM];
-
+int n, a[NM], sum[NM][NM], dy[NM][NM];
 void input() {
 	cin >> n;
-	for (int i = 1; i <= n; i++) cin >> a[i];
-	for (int i = 1; i < n; i++) {
-		int x, y; cin >> x >> y;
-		con[x].push_back(y);
-		con[y].push_back(x);
-	}
+	for (int i = 1; i <= n; i++)
+		cin >> a[i];
 }
-void dfs(int x, int par) {
-	dy[x][1] = a[x];
-	for (int y : con[x]) {
-		if (y == par) continue;
-		dfs(y, x);
-		dy[x][0] += max(dy[y][0], dy[y][1]);
-		dy[x][1] += dy[y][0];
+void preprocess() {
+	for (int i = 1; i <= n; i++)
+		for (int j = i; j <= n; j++)
+			sum[i][j] = sum[i][j - 1] + a[j];
+}
+void pro() {
+	for (int len = 2; len <= n; len++) {
+		for (int i = 1; i <= n - len + 1; i++) {
+			int j = i + len - 1;
+			dy[i][j] = 0x7fffffff;
+			for (int k = i; k < j; k++)
+				dy[i][j] = min(dy[i][j], dy[i][k] + dy[k + 1][j] + sum[i][j]);
+		}
 	}
+	cout << dy[1][n] << "\n";
 }
 
 int main() {
 	ios::sync_with_stdio(false); cin.tie(0);
-	input();
-	dfs(1, -1);
-	cout << max(dy[1][0], dy[1][1]);
+	int TT;
+	cin >> TT;
+	while (TT--) {
+		input();
+		preprocess();
+		pro();
+	}
 	return 0;
 }

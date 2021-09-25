@@ -1,38 +1,42 @@
 import java.io.*;
 import java.util.*;
+import java.lang.Math;
 
 public class Main {
-    static StringBuilder sb = new StringBuilder();
     static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
 
-    static int n, m;
-    static int[] a, b;
+    static int N;
+    static int[] Dy;
+    static int[] A;
 
     static void input() {
-        n = scan.nextInt();
-        m = scan.nextInt();
-        a = new int[n + 1];
-        b = new int[m + 1];
-        for (int i = 1; i <= n; i++) {
-            a[i] = scan.nextInt();
-        }
-        for (int i = 1; i <= m; i++) {
-            b[i] = scan.nextInt();
-        }
+        N = scan.nextInt();
+        A = new int[N + 1];
+        for (int i = 1; i <= N; i++) A[i] = scan.nextInt();
+        Dy = new int[N + 1];
     }
 
     static void pro() {
-        int L = 1, R = 1;
-        // a와 b를 앞에서부터 하나씩 추출해서 출력한다. 단, 둘 다 비어있지 않은 경우와 그것이 아닌 경우를 잘 나누자.
-        /* TODO */
-        
-        System.out.println(sb);
+        // 초기값 구하기
+        Dy[0] = 0;
+
+        // 점화식을 토대로 Dy 배열 채우기
+        for (int i = 1; i <= N; i++) {
+            for (int cnt = 1; cnt <= i; cnt++) {
+                Dy[i] = Math.max(Dy[i], Dy[i - cnt] + A[cnt]);
+            }
+        }
+
+        // Dy배열로 정답 계산하기
+        System.out.println(Dy[N]);
     }
 
     public static void main(String[] args) {
         input();
         pro();
     }
+
 
     static class FastReader {
         BufferedReader br;

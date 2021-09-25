@@ -1,38 +1,32 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
-    static StringBuilder sb = new StringBuilder();
     static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
 
-    static int n, m;
-    static int[] a, b;
+    static int Q;
+    static int[] Dy;
 
-    static void input() {
-        n = scan.nextInt();
-        m = scan.nextInt();
-        a = new int[n + 1];
-        b = new int[m + 1];
-        for (int i = 1; i <= n; i++) {
-            a[i] = scan.nextInt();
-        }
-        for (int i = 1; i <= m; i++) {
-            b[i] = scan.nextInt();
-        }
+    static void input(){
+        Q = scan.nextInt();
     }
 
     static void pro() {
-        int L = 1, R = 1;
-        // a와 b를 앞에서부터 하나씩 추출해서 출력한다. 단, 둘 다 비어있지 않은 경우와 그것이 아닌 경우를 잘 나누자.
-        /* TODO */
-        
-        System.out.println(sb);
+        Dy = new int[20 + 1];
+        Dy[0] = 0;
+        Dy[1] = 1;
+        for (int i = 2; i <= Q; i++)
+            Dy[i] = Dy[i - 1] + Dy[i - 2];
+        System.out.println(Dy[Q]);
     }
 
     public static void main(String[] args) {
         input();
         pro();
     }
+
 
     static class FastReader {
         BufferedReader br;

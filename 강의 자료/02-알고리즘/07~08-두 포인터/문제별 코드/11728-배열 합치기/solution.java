@@ -5,37 +5,33 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
     static FastReader scan = new FastReader();
 
-    static int n, S;
-    static int[] a;
+    static int n, m;
+    static int[] a, b;
 
     static void input() {
         n = scan.nextInt();
-        S = scan.nextInt();
+        m = scan.nextInt();
         a = new int[n + 1];
+        b = new int[m + 1];
         for (int i = 1; i <= n; i++) {
             a[i] = scan.nextInt();
+        }
+        for (int i = 1; i <= m; i++) {
+            b[i] = scan.nextInt();
         }
     }
 
     static void pro() {
-        int R = 0, sum = 0, ans = n + 1;
-        for (int L = 1; L <= n; L++) {
-            // L - 1 을 구간에서 제외하기
-            sum -= a[L - 1];
-            
-            // R 을 옮길 수 있을 때 까지 옮기기
-            while (R + 1 <= n && sum < S)
-                sum += a[++R];
-            
-            // [L ... R] 의 합, 즉 sum이 조건을 만족하면 정답 갱신하기
-            if (sum >= S)
-                ans = Math.min(ans, R - L + 1);
+        int L = 1, R = 1;
+        // a와 b를 앞에서부터 하나씩 추출해서 출력한다. 단, 둘 다 비어있지 않은 경우와 그것이 아닌 경우를 잘 나누자.
+        while (L <= n && R <= m){
+            if (a[L] <= b[R]) sb.append(a[L++]).append(' ');
+            else sb.append(b[R++]).append(' ');
         }
-
-        // ans 값을 보고 불가능 판단하기
-        if (ans == n + 1)
-            ans = 0;
-        System.out.println(ans);
+        while (L <= n) sb.append(a[L++]).append(' ');
+        while (R <= m) sb.append(b[R++]).append(' ');
+        
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
