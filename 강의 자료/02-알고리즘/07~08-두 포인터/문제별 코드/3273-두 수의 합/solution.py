@@ -1,17 +1,15 @@
 import sys
 si = sys.stdin.readline
-n, S = list(map(int, si().split()))
+n = int(si())
 a = list(map(int, si().split()))
-R, sum, ans = -1, 0, n + 1
-for L in range(n):
-    while R + 1 < n and sum < S:
-        R += 1
-        sum += a[R]
-    
-    if sum >= S:
-        ans = min(ans, R - L + 1)
-
-    sum -= a[L]
-
-if ans == n + 1: ans = 0
+S = int(si())
+a.sort()
+L, R, ans = 0, n - 1, 0
+while L < R:
+    if a[L] + a[R] == S:
+        ans += 1
+    if a[L] + a[R] >= S:
+        R -= 1
+    else:
+        L += 1
 print(ans)
