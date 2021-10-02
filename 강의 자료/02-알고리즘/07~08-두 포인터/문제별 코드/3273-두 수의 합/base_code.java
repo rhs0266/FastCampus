@@ -9,22 +9,17 @@ public class Main {
     static int[] a;
 
     static void input() {
-        n = scan.nextInt();
-        a = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            a[i] = scan.nextInt();
-        }
-        S = scan.nextInt();
-        Arrays.sort(a, 1, n + 1);
+        // 입력 받기
+        /* TODO */
+
+        // 입력 배열 정렬하기
+        /* TODO */
     }
 
     static void pro() {
         int ans = 0, L = 1, R = n;
-        while (L < R) {
-            if (a[L] + a[R] == S) ans++;
-            if (a[L] + a[R] >= S) R--;
-            else L++;
-        }
+        // L과 R을 양쪽 끝에서 이동시키면서 정답 계산하기
+        /* TODO */
         System.out.println(ans);
     }
 
