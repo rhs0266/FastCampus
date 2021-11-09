@@ -16,13 +16,13 @@
 |RGB거리|[링크](http://boj.kr/1149)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1149-RGB%20거리)|
 |포도주 시식|[링크](http://boj.kr/2156)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2156-포도주%20시식)|
 |이친수|[링크](http://boj.kr/2193)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2193-이친수)|
-|스티커|[링크](http://boj.kr/9465)|[링크]|
-|동물원|[링크](http://boj.kr/1309)|[링크]|
-|줄어들지 않아|[링크](http://boj.kr/2688)|[링크]|
-|계단 수|[링크](http://boj.kr/1562)|[링크]|
-|내려가기|[링크](http://boj.kr/2096)|[링크]|
-|1학년|[링크](http://boj.kr/5557)|[링크]|
-|기타리스트|[링크](http://boj.kr/1495)|[링크]|
+|스티커|[링크](http://boj.kr/9465)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/9465-스티커)|
+|동물원|[링크](http://boj.kr/1309)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1309-동물원)|
+|줄어들지 않아|[링크](http://boj.kr/2688)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2688-줄어들지%20않아)|
+|계단 수|[링크](http://boj.kr/1562)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1562-계단%20수)|
+|내려가기|[링크](http://boj.kr/2096)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2096-내려가기)|
+|1학년|[링크](http://boj.kr/5557)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/5557-1학년)|
+|기타리스트|[링크](http://boj.kr/1495)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1495-기타리스트)|
 |1, 2, 3 더하기|[링크](http://boj.kr/9095)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/9095-1,%202,%203%20더하기)|
-|1, 2, 3 더하기 5|[링크](http://boj.kr/15990)|[링크]|
-|우수 마을|[링크](http://boj.kr/1949)|[링크]|
+|1, 2, 3 더하기 5|[링크](http://boj.kr/15990)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/15990-1,%202,%203%20더하기%205)|
+|우수 마을|[링크](http://boj.kr/1949)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1949-우수%20마을)|
