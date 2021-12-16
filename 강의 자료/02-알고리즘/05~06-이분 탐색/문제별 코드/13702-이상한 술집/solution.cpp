@@ -15,6 +15,9 @@ void input() {
 }
 
 bool determination(ll amount) {
+	if (amount == 0) {
+		return false;
+	}
 	ll sum = 0;
 	for (int i = 1; i <= N; i++) {
 		sum += A[i] / amount;
