@@ -4,6 +4,8 @@ n, k = list(map(int, si().split()))
 a = [int(si()) for _ in range(n)]
 
 def determination(amount):
+    if amount == 0:
+        return False
     sum = 0
     for x in a:
         sum += x // amount
