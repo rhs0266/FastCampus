@@ -7,12 +7,12 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     static int n, Q;
-    static int[] estate;
+    static boolean[] estate;
 
     static void input() throws IOException {
         n = scan.nextInt();
         Q = scan.nextInt();
-        estate = new int[n + 1];
+        estate = new boolean[n + 1];
     }
 
     static void pro() {
@@ -21,11 +21,11 @@ public class Main {
         while (Q-- > 0){
             int x = scan.nextInt(), res = 0;
             int y = x;
-            while (x) {
+            while (x > 0) {
                 if (estate[x]) res = x;
                 x >>= 1;
             }
-            estate[y] = 1;
+            estate[y] = true;
             sb.append(res).append('\n');
         }
         System.out.println(sb);
