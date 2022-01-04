@@ -6,37 +6,39 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, M, H;
-    static int[][][] dist, a;
-    static int[][] dir = { {1,0,0,},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1}, {0,0,-1} };
+    static int N, M;
+    static int[][] a;
+    static int[][] dist;
+    static int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     
     static void input() {
         M = scan.nextInt();
         N = scan.nextInt();
-        H = scan.nextInt();
-        a = new int[H + 1][N + 1][M + 1];
-        dist = new int[H + 1][N + 1][M + 1];
-        for (int h = 1; h <= H; h++) {
-            for (int i = 1; i <= N; i++) {
-                for (int j = 1; j <= M; j++) {
-                    a[h][i][j] = scan.nextInt();
-                }
+        dist = new int[N][M];
+        a = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                a[i][j] = scan.nextInt();
             }
         }
     }
 
-    static void bfs() {
-        // 초기화 해주기
+    static int bfs() {
+        Queue<Integer> Q = new LinkedList<>();
+        // 초기화 및 시작점 찾기
         /* TODO */
-
+        
         // BFS 과정 시작
         /* TODO */
+
+        // 정답 계산하기
+        int ans = 0;
+        /* TODO */
+        return ans;
     }
 
     static void pro() {
-        int ans = 0;
-        // bfs 수행 이후에 정답 계산하기
-        System.out.println(ans);
+        System.out.println(bfs());
     }
 
     public static void main(String[] args) {
