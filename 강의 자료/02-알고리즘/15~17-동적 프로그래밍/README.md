@@ -10,7 +10,7 @@
 |피보나치 함수|[링크](http://boj.kr/1003)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1003-피보나치%20함수)|
 |피보나치 수 5|[링크](http://boj.kr/10870)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/10870-피보나치%20수%205)|
 |1, 2, 3 더하기 3|[링크](http://boj.kr/15988)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/15988-1,%202,%203%20더하기%203)|
-|1, 2, 3 더하기 6|[링크](http://boj.kr/15991)|[링크]|
+|1, 2, 3 더하기 6|[링크](http://boj.kr/15991)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/15991-1,%202,%203%20더하기%206)|
 |카드 구매하기|[링크](http://boj.kr/11052)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/11052-카드%20구매하기)|
 |암호코드|[링크](http://boj.kr/2011)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/2011-암호코드)|
 |RGB거리|[링크](http://boj.kr/1149)|[링크](https://github.com/rhs0266/FastCampus/tree/main/%EA%B0%95%EC%9D%98%20%EC%9E%90%EB%A3%8C/02-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/15~17-동적%20프로그래밍/문제별%20코드/1149-RGB%20거리)|
