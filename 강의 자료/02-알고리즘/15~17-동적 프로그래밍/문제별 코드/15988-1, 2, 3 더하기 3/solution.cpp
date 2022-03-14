@@ -3,7 +3,7 @@
 #include <vector>
 #pragma warning(disable:4996)
 using namespace std;
-#define NM 100005
+#define NM 1000005
 
 int Q, MOD = 1000000009;
 int dy[NM];
@@ -19,7 +19,7 @@ void preprocess() {
 	// 이를 통해서 dy[1, 2, 3]에 대해서도 일관성있는 점화식을 작성할 수 있기 때문이다.
 	// 이게 불편하다면 dy[1, 2, 3] 에 대해 모두 값을 적어주고 시작해도 상관없다.
 	dy[0] = 1;
-	for (int i = 1; i <= 100000; i++) {
+	for (int i = 1; i <= 1000000; i++) {
 		dy[i] = dy[i - 1];  // 마지막에 1을 더하는 경우의 수
 		if (i - 2 >= 0) dy[i] += dy[i - 2];  // 마지막에 2을 더하는 경우의 수
 		dy[i] %= MOD;
@@ -33,20 +33,7 @@ void pro() {
 	while (Q-- > 0) {
 		int x;
 		cin >> x;
-		int res = 0;
-		// 홀수 개를 더한 경우
-		for (int mid = 1; mid <= 3; mid++)  // 가운데에 mid 를 더한 상황
-			if (x - mid >= 0 && (x - mid) % 2 == 0) {  // 양쪽이 대칭을 이루게 더하기 위함
-				res += dy[(x - mid) / 2];
-				res %= MOD;
-			}
-
-		// 짝수 개를 더한 경우 (사실상 위에서 mid 가 0 인 경우. 즉, for loop을 0 부터 시작해도 됨)
-		if (x % 2 == 0) {  // 양쪽이 대칭을 이루게 더하기 위함
-			res += dy[x / 2];
-			res %= MOD;
-		}
-		cout << res << '\n';
+		cout << dy[x] << '\n';
 	}
 }
 int main() {
