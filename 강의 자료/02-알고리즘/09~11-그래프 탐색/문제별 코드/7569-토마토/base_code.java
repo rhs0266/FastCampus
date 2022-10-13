@@ -6,39 +6,23 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, M;
-    static int[][] a;
-    static int[][] dist;
-    static int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    static int N, M, H;
+    static int[][][] dist, a;
+    static int[][] dir = { {1,0,0,},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1}, {0,0,-1} };
     
     static void input() {
         M = scan.nextInt();
         N = scan.nextInt();
-        dist = new int[N][M];
-        a = new int[N][M];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                a[i][j] = scan.nextInt();
-            }
-        }
+        H = scan.nextInt();
+        /* TODO */
     }
 
-    static int bfs() {
-        Queue<Integer> Q = new LinkedList<>();
-        // 초기화 및 시작점 찾기
+    static void bfs() {
         /* TODO */
-        
-        // BFS 과정 시작
-        /* TODO */
-
-        // 정답 계산하기
-        int ans = 0;
-        /* TODO */
-        return ans;
     }
 
     static void pro() {
-        System.out.println(bfs());
+        /* TODO */
     }
 
     public static void main(String[] args) {
