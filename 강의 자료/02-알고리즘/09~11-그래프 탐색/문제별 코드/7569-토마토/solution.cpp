@@ -4,58 +4,70 @@
 typedef long long int ll;
 using namespace std;
 
-#define NM 1005
+#define NM 105
 
-int N, M, a[NM][NM], dist[NM][NM];
-int dir[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+int N, M, H, dist[NM][NM][NM], a[NM][NM][NM];
+int dir[6][3] = { {1,0,0,},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1}, {0,0,-1} };
+int sx, sy, ex, ey;
 
 void input() {
-    cin >> M >> N;
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= M; j++) {
-            cin >> a[i][j];
+    cin >> M >> N >> H;
+    for (int h = 1; h <= H; h++) {
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= M; j++) {
+                cin >> a[h][i][j];
+            }
         }
     }
 }
 
 #include <queue>
-int bfs() {
+void bfs() {
     queue<int> Q;
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= M; j++) {
-            dist[i][j] = -1;
-            if (a[i][j] == 1) {
-                dist[i][j] = 0;
-                Q.push(i); Q.push(j);
+    for (int h = 1; h <= H; h++) {
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= M; j++) {
+                dist[h][i][j] = -1;
+                if (a[h][i][j] == 1) {
+                    dist[h][i][j] = 0;
+                    Q.push(h); Q.push(i); Q.push(j);
+                }
             }
         }
     }
     while (!Q.empty()) {
+        int h = Q.front(); Q.pop();
         int i = Q.front(); Q.pop();
         int j = Q.front(); Q.pop();
-        for (int k = 0; k < 4; k++) {
-            int ni = i + dir[k][0];
-            int nj = j + dir[k][1];
-            if (ni < 1 || nj < 1 || ni > N || nj > M) continue;
-            if (dist[ni][nj] != -1) continue;
-            if (a[ni][nj] == -1) continue;
-            dist[ni][nj] = dist[i][j] + 1;
-            Q.push(ni); Q.push(nj);
+        for (int k = 0; k < 6; k++) {
+            int nh = h + dir[k][0];
+            int ni = i + dir[k][1];
+            int nj = j + dir[k][2];
+            if (nh < 1 || ni < 1 || nj < 1 || nh > H || ni > N || nj > M) continue;
+            if (dist[nh][ni][nj] != -1) continue;
+            if (a[nh][ni][nj] == -1) continue;
+            dist[nh][ni][nj] = dist[h][i][j] + 1;
+            Q.push(nh); Q.push(ni); Q.push(nj);
         }
     }
-
-    int ans = 0;
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= M; j++) {
-            if (a[i][j] == -1) continue;
-            if (dist[i][j] == -1) return -1;
-            ans = max(ans, dist[i][j]);
-        }
-    }
-    return ans;
 }
 void pro() {
-    cout << bfs();
+    bfs();
+    int ans = 0;
+    for (int h = 1; h <= H; h++) {
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= M; j++) {
+                if (a[h][i][j] == -1) continue;
+                if (dist[h][i][j] == -1) {
+                    cout << -1;
+                    return;
+                }
+                ans = max(ans, dist[h][i][j]);
+            }
+        }
+    }
+    cout << ans;
+
 }
 
 
