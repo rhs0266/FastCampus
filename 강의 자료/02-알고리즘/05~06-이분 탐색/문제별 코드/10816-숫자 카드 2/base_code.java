@@ -5,7 +5,7 @@ public class Main {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, Sum;
+    static int N;
     static int[] A;
 
     static void input() {
@@ -14,23 +14,26 @@ public class Main {
         for (int i = 1; i <= N; i++) {
             A[i] = scan.nextInt();
         }
-        Sum = scan.nextInt();
     }
 
-    static boolean bin_search(int[] A, int L, int R, int X) {
-        // A[L ... R] 에서 X 가 존재하면 true, 없으면 false 를 return 하는 함수
+    static int lower_bound(int[] A, int L, int R, int X) {
+        // TODO
+    }
+
+    static int upper_bound(int[] A, int L, int R, int X) {
+        // TODO
     }
 
     static void pro() {
-        // A 에 대해 이분 탐색을 할 예정이니까, 정렬을 미리 해주자.
-        // TODO
-
-        int ans = 0;
-        for (int i = 1; i <= N - 1; i++) {
-            // A[i] 를 선택했다. 즉 우린 Sum - A[i] 가 배열에 있는 지 확인해야 한다.
-            if (/* TODO */) ans++;
+        int M = scan.nextInt();
+        Arrays.sort(A, 1, N + 1);
+        for (int i = 1; i <= M; i++) {
+            int X = scan.nextInt();
+            int upper = upper_bound(A, 1, N, X);
+            int lower = lower_bound(A, 1, N, X);
+            sb.append(upper - lower).append(' ');
         }
-        System.out.println(ans);
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
