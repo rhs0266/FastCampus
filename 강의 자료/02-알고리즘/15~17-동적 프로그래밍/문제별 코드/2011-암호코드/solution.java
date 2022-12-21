@@ -26,7 +26,7 @@ public class Main {
         Dy = new int[N];
 
         // 초기값 구하기
-            
+        if (str.charAt(0) != '0') Dy[0] = 1;
 
         // 점화식을 토대로 Dy 배열 채우기
         for (int i = 1; i < N; i++) {
