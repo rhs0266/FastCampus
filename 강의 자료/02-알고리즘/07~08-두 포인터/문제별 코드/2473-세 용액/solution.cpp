@@ -1,41 +1,63 @@
-#include <iostream>
-#include <algorithm>
-#include <string>
-typedef long long int ll;
+#include <bits/stdc++.h>
 using namespace std;
 
-#define NM 100005
+int n;
+vector<long long> arr;
+long long int ans[3];
 
-int N;
-int A[NM];
-
-void input() {
-	cin >> N;
-	for (int i = 1; i <= N; i++) cin >> A[i];
-}
-
-void pro() {
-	sort(A + 1, A + 1 + N);
-	
-	int best_sum = 0x7fffffff;
-	int v1 = 0, v2 = 0, L = 1, R = N;
-
-	while (L < R){  // L == R 인 상황이면 용액이 한 개 뿐인 것이므로, L < R 일 때까지만 반복한다.
-		if (best_sum > abs(A[L] + A[R])) {
-			best_sum = abs(A[L] + A[R]);
-			v1 = A[L];
-			v2 = A[R];
-		}
-		if (A[L] + A[R] > 0) R--;
-		else L++;
+void input()
+{
+	// freopen("input.txt", "r", stdin);
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		long long tmp;
+		cin >> tmp;
+		arr.push_back(tmp);
 	}
-	cout << v1 << " " << v2;
 }
 
-
-int main() {
-	ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 	input();
-	pro();
+
+	sort(arr.begin(), arr.end());
+	long long best = LONG_MAX; // 최소값 찾는 문제니까 초기값은 최대값
+
+	for (int i = 0; i < n - 2; i++)
+	{
+		int left = i + 1, right = n - 1;
+
+		while (left < right)
+		{
+			long long sum = arr[i] + arr[left] + arr[right];
+			if (abs(best) > abs(sum)) // 기존 합보다 새로운 세 수의 합이 작으면 갱신
+			{
+				best = sum;
+				ans[0] = arr[i];
+				ans[1] = arr[left];
+				ans[2] = arr[right];
+			}
+
+			if (sum > 0) // 세 수의 합이 양수면 더 작게 만들기
+				right--;
+			else if (sum < 0) // 세 수의 합이 음수면 더 크게 만들기
+				left++;
+			else // 합이 0이면 바로 끝내기
+			{
+				i = n;
+				break;
+			}
+		}
+	}
+
+	sort(ans, ans + 3);
+	for (auto num : ans)
+	{
+		cout << num << " ";
+	}
 	return 0;
 }
