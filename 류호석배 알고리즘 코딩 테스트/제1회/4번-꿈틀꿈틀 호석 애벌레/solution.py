@@ -4,7 +4,6 @@ sys.setrecursionlimit(100005)
 # Input
 n, k = map(int, sys.stdin.readline().strip().split())
 food = list(map(int, sys.stdin.readline().strip().split()))
-food.insert(0, 0)
 
 ans = 0
 def dfs(idx: int, energy: int):
